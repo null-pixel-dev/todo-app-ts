@@ -1,116 +1,160 @@
+/* Base styles */
 body {
-  background-color: #f4f4f4; /* A neutral background to emphasize the sticky notes */
-  color: #333;
-  font-family: "Comic Sans MS", "Helvetica Neue", sans-serif; /* Comic Sans adds a casual feel, resembling handwriting on sticky notes */
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column; /* Changed to column to keep the form at the top */
-  align-items: center;
-  overflow: auto; /* Allows scrolling when many tasks are added */
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Patrick Hand', cursive;
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+    padding-bottom: 60px;
+    align-items: center;
 }
 
+/* Form styles */
 form {
-  background-color: #fdfd96; /* Bright yellow for the add task button area, mimicking a sticky note */
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
-  width: 90%; /* Ensure it spans most of the viewport */
-  max-width: 600px; /* But doesn't get too wide on larger screens */
-  z-index: 2; /* Keeps the form above other content */
-  position: sticky; /* Keeps the form at the top */
-  top: 0; /* Aligns it to the top */
+    background-color: #fdfd96;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    max-width: 600px;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    width: 90%;
+    z-index: 2;
 }
 
 #new-task-form {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+    align-items: center;
+    display: flex;
+    gap: 10px;
 }
 
+/* Input styles */
 input[type="text"] {
-  flex-grow: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px; /* Slightly larger font for readability */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-grow: 1;
+    font-size: 16px;
+    padding: 8px;
 }
 
+/* Button styles */
 button {
-  padding: 8px 15px;
-  background-color: #4db6ac;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #4db6ac;
+    font-family: 'Patrick Hand', cursive;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #f9a825;
+    background-color: #f9a825;
 }
 
+/* List styles */
 #list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Creates a dynamic grid that adjusts based on screen size */
-  gap: 20px; /* Adds space between cards */
-  padding: 0;
-  width: 90%; /* Matches form width */
-  max-width: 600px; /* Consistency in max width */
-  margin-top: 20px; /* Adds some space between the form and the first row of tasks */
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin-top: 20px;
+    max-width: 600px;
+    padding: 0;
+    width: 90%;
 }
 
 #list li {
-  background-color: #fdfd96; /* Sticky note yellow */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gives depth to each sticky note */
-  padding: 10px;
-  border-radius: 8px; /* Rounded corners for a softer look */
-  display: flex;
-  align-items: center;
-  transition: transform 0.2s ease-in-out;
-  transform: rotate(-2deg); /* Slightly rotated for a more dynamic, natural look */
+    align-items: center;
+    background-color: #fdfd96;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+    transform: rotate(-2deg);
 }
 
 #list li:nth-child(odd) {
-  transform: rotate(2deg); /* Alternates rotation for visual interest */
+    transform: rotate(2deg);
 }
 
 #list li:hover {
-  transform: scale(1.05); /* Slight scale effect on hover for interactivity */
-  z-index: 1; /* Ensure hovered card is above others */
+    transform: scale(1.05);
+    z-index: 1;
 }
 
+/* Checkbox styles */
 input[type="checkbox"] {
-  margin-right: 10px;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  margin: 3px;
-  font: inherit;
-  color: currentColor;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #4db6ac; /* Updated border color to match button */
-  border-radius: 4px;
-  position: relative;
-  cursor: pointer;
-}
-
-input[type="checkbox"]:checked::before {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+    appearance: none;
+    background-color: #fff;
+    border: 2px solid #4db6ac;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 20px;
+    margin: 3px;
+    margin-right: 10px;
+    position: relative;
+    width: 20px;
+    -webkit-appearance: none;
 }
 
 input[type="checkbox"]:checked {
-  background-color: #f9a825; /* Fill checkbox with the theme color when checked */
-  border-color: #f9a825;
+    background-color: #f9a825;
+    border-color: #f9a825;
+}
+
+input[type="checkbox"]:checked::before {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    content: "";
+    height: 10px;
+    left: 6px;
+    position: absolute;
+    top: 2px;
+    transform: rotate(45deg);
+    width: 5px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+    left: 0;
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.brand-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: #f9a825;
 }
