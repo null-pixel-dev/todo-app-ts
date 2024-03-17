@@ -1,0 +1,116 @@
+body {
+  background-color: #f4f4f4; /* A neutral background to emphasize the sticky notes */
+  color: #333;
+  font-family: "Comic Sans MS", "Helvetica Neue", sans-serif; /* Comic Sans adds a casual feel, resembling handwriting on sticky notes */
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Changed to column to keep the form at the top */
+  align-items: center;
+  overflow: auto; /* Allows scrolling when many tasks are added */
+}
+
+form {
+  background-color: #fdfd96; /* Bright yellow for the add task button area, mimicking a sticky note */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  width: 90%; /* Ensure it spans most of the viewport */
+  max-width: 600px; /* But doesn't get too wide on larger screens */
+  z-index: 2; /* Keeps the form above other content */
+  position: sticky; /* Keeps the form at the top */
+  top: 0; /* Aligns it to the top */
+}
+
+#new-task-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px; /* Slightly larger font for readability */
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #4db6ac;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #f9a825;
+}
+
+#list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Creates a dynamic grid that adjusts based on screen size */
+  gap: 20px; /* Adds space between cards */
+  padding: 0;
+  width: 90%; /* Matches form width */
+  max-width: 600px; /* Consistency in max width */
+  margin-top: 20px; /* Adds some space between the form and the first row of tasks */
+}
+
+#list li {
+  background-color: #fdfd96; /* Sticky note yellow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gives depth to each sticky note */
+  padding: 10px;
+  border-radius: 8px; /* Rounded corners for a softer look */
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+  transform: rotate(-2deg); /* Slightly rotated for a more dynamic, natural look */
+}
+
+#list li:nth-child(odd) {
+  transform: rotate(2deg); /* Alternates rotation for visual interest */
+}
+
+#list li:hover {
+  transform: scale(1.05); /* Slight scale effect on hover for interactivity */
+  z-index: 1; /* Ensure hovered card is above others */
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 3px;
+  font: inherit;
+  color: currentColor;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #4db6ac; /* Updated border color to match button */
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:checked {
+  background-color: #f9a825; /* Fill checkbox with the theme color when checked */
+  border-color: #f9a825;
+}
