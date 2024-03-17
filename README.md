@@ -1,4 +1,6 @@
-# New Project
+# TODO APP
+
+Create a simple todo list featuring a handwritten sticky note theme.
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
